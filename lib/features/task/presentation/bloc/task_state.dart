@@ -1,0 +1,19 @@
+import 'package:task_manager_app/features/task/domain/entities/task.dart';
+
+sealed class TaskState {}
+
+class TaskInitial extends TaskState {}
+
+class TaskLoading extends TaskState {}
+
+class TaskLoaded extends TaskState {
+  final List<Task> tasks;
+
+  TaskLoaded(this.tasks);
+}
+
+class TaskError extends TaskState {
+  final String message;
+
+  TaskError(this.message);
+}
